@@ -14,9 +14,11 @@ type LoginUserAccount = {
 
 const appwriteClient = new Client();
 
+console.log("adasd" + conf.appwriteUrl);
+
 appwriteClient.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
 
-export const account = new Account(appwriteClient);
+const account = new Account(appwriteClient);
 
 export class AppwriteService {
   // create a new record of user inside appwrite
@@ -33,7 +35,6 @@ export class AppwriteService {
         return this.login({ email, password });
       } else {
         return userAccount;
-        throw Error("Failed to create the user");
       }
     } catch (error) {
       throw error;
